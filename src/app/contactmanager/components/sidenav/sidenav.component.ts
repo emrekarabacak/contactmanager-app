@@ -23,6 +23,8 @@ export class SidenavComponent implements OnInit {
   }
 
   users: Observable<User[]>;
+  isDarkTheme: boolean = false;
+  dir: string = 'ltr';
   @ViewChild(MatSidenav) sidenav: MatSidenav;
 
   ngOnInit() {
@@ -34,6 +36,14 @@ export class SidenavComponent implements OnInit {
         this.sidenav.close();
       }
     })
+  }
+
+  toggleTheme(){
+    this.isDarkTheme = !this.isDarkTheme;
+  }
+
+  toggleDir(){
+    this.dir = this.dir == 'ltr' ? 'rtl' : 'ltr';
   }
 
   isScreenSmall(): boolean {
